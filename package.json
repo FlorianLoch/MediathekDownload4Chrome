@@ -1,0 +1,29 @@
+{
+  "name": "MediathekDownload4Chrome",
+  "version": "0.0.0",
+  "description": "Chrome Extension for easy downloading of videos from ARD and ZDF",
+  "main": "manifest.json",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/FlorianLoch/MediathekDownload4Chrome.git"
+  },
+  "author": "Florian Loch",
+  "license": "GPL v2",
+  "bugs": {
+    "url": "https://github.com/FlorianLoch/MediathekDownload4Chrome/issues"
+  },
+  "homepage": "https://github.com/FlorianLoch/MediathekDownload4Chrome",
+  "dependencies": {
+    "bower": "~1.3.3",
+    "grunt": "~0.4.5",
+    "grunt-contrib-uglify": "~0.4.0",
+    "rimraf": "~2.2.8",
+    "grunt-contrib-copy": "~0.5.0"
+  }
+}

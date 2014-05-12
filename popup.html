@@ -1,12 +1,87 @@
+<!DOCTYPE html>
 <html>
 	<head>
+		<meta http-equiv="content-type" content="text/html; utf-8">
 		<title>MediathekDownload4Chrome</title>
-		<script type="text/javascript" src="js_libs/jquery-2.1.1.min.js"></script>
-		<script type="text/javascript" src="js/popup.js"></script>
+		<!-- START OF INCLUDES -->
+			<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>		
+			<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+			<script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+			<script type="text/javascript" src="js/popup.js"></script>
+			<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<!-- END OF INCLUDES -->
 	</head>
-	<body>
-		<div id="container">
+	<style>
+		.fade-anim.ng-enter, .fade-anim.ng-leave {
+			-webkit-transition: 0.8s linear all;
+		}
 
+		.fade-anim.ng-enter.ng-leave-active, .fade-anim.ng-enter {
+			opacity: 0;
+		}
+
+		.fade-anim.ng-enter.ng-enter-active, .fade-anim.ng-leave {
+			opacity: 1;
+		}
+
+		#wrapper {
+			width: 300px;
+			min-height: 300px;
+			background: #EEE;			
+		}
+
+		#loadingScreen {
+			position: absolute;
+			background: url("./images/loading_2.gif") no-repeat;
+			background-position: center center;
+			height: 100%;
+			width: 100%;
+		}
+
+		#noVidsScreen {
+			background: url("./images/sad_pinguin.png");
+		}
+
+		#listScreen {
+			padding: 10px;
+			padding-top: 20px;
+		}
+
+		button {
+			width: 100%;
+		}
+
+		.buttonDiv + .buttonDiv {
+			margin-top: 10px;
+		}
+
+		#name {
+			padding: 10px;
+			font-size: 14pt;
+			width: 100%;
+			background: #CCC;
+			font-weight: bold;
+		}
+	</style>
+	<body ng-app="md4c" ng-controller="md4c.mainCntrl">
+		<div id="wrapper">
+			<div class="plainfade" ng-if="loading" id="loadingScreen"></div>
+			<div class="plainfade" ng-if="!loading">
+				<div ng-if="!videosFound()" id="noVidsScreen">
+					
+				</div>
+				<div ng-if="videosFound()" id="name">{{getName()}}</div>
+				<div ng-if="videosFound()" id="listScreen">
+					<div class="panel panel-default">
+						<div class="panel-heading">Download ausw&auml;hlen:</div>
+						<div class="panel-body">
+							<div ng-repeat="vid in videos" class="buttonDiv">
+								<button ng-click="download($index)" class="btn btn-primary" ng-if="vid.exists">{{vid.desc}} ({{vid.fs}})</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

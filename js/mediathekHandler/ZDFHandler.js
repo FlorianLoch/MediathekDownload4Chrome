@@ -62,12 +62,12 @@ function ZDFHandler() {
 		  	  
 		  	  var res = new Array();
 		  	  res[0] = {};
-		  	  res[0].desc = "Hohe Qualität (DSL 1000)";
+		  	  res[0].desc = "Mittlere Qualität";
 		  	  res[0].fs = "";
 		  	  res[0].url = high.str;
 		  	  res[0].name = name.str;
 		  	  res[1] = {};
-		  	  res[1].desc = "Sehr hohe Qualität (DSL 2000)";
+		  	  res[1].desc = "Hohe Qualität";
 		  	  res[1].fs = "";
 		  	  res[1].url = veryHigh.str;		
 		  	  res[1].name = name.str;

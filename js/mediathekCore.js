@@ -108,7 +108,7 @@ function MediathekCore () {
 				  onComplete: function (response, header, status) {	
 				  		if (status == 200) {
 					  		oVideoURLs[iCounter].exists = true;				  			
-					  		oVideoURLs[iCounter].fs = header["Content-Length"];
+					  		oVideoURLs[iCounter].fs = Math.round((header["Content-Length"] / (1024 * 1024)) * 100) / 100 + " MB";
 					  		console.log("Size: " + header["Content-Length"]);
 					  	}
 					  	else {

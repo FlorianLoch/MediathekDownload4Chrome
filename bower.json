@@ -1,0 +1,23 @@
+{
+  "name": "MediathekDownload4Chrome",
+  "version": "0.1.0",
+  "homepage": "https://github.com/FlorianLoch/MediathekDownload4Chrome",
+  "authors": [
+    "Florian Loch <Florian.Loch@gmail.com>"
+  ],
+  "main": "manifest.json",
+  "license": "GPL v2",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.16",
+    "bootstrap": "~3.1.1",
+    "angular-animate": "~1.2.16"
+  }
+}
