@@ -42,7 +42,7 @@ function MediathekCore () {
 	
 	this.downloadVideo = function (videoUrl_o) {
 		if ("name" in videoUrl_o && "url" in videoUrl_o) {
-			var filename = makeFileNameValid(videoUrl_o.name) + "." + extractFileNameEnding(videoUrl_o.url);
+			var filename = makeFileNameValid(decodeEntities(videoUrl_o.name)) + "." + extractFileNameEnding(videoUrl_o.url);
 			console.log("Download video with name: " + filename);
 
 			chrome.downloads.download({
@@ -55,10 +55,34 @@ function MediathekCore () {
 
 	// Characters interpreted as invalid: /, \, ?, %, *, :, |, ", <, > (regarding to the article at: http://en.wikipedia.org/wiki/Filename)
 	function makeFileNameValid (filename_s) {
-		var regEx = /\/|\\|\?|%|\*|:|\||"|<|>/g;
+		var regEx = /\/|\\|\?|%|\*|:|\||<|>/g;
 
-		return filename_s.replace(regEx, "_");
+		var newFilename = filename_s.replace(regEx, "_");
+		return newFilename.replace(/"/g, "'");
 	}
+
+	//Taken from http://stackoverflow.com/a/13091266/1339560, slightly modified
+	function decodeEntities (str) {
+	    // Remove HTML Entities
+	    var element = document.createElement('div');
+
+	    if(str && typeof str === 'string') {
+
+	        // Escape HTML before decoding for HTML Entities
+	        str = escape(str).replace(/%26/g,'&').replace(/%23/g,'#').replace(/%3B/g,';');
+
+	        element.innerHTML = str;
+	        if(element.innerText){
+	            str = element.innerText;
+	            element.innerText = '';
+	        }else{
+	            // Firefox support
+	            str = element.textContent;
+	            element.textContent = '';
+	        }
+	    }
+	    return unescape(str);
+	}	
 
 	function extractFileNameEnding (path_s) {
 		for (var i = path_s.length - 1; i >= 0; i--) {
