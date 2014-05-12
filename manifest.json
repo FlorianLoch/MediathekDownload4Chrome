@@ -1,0 +1,34 @@
+{
+  "manifest_version": 2,
+  "name": "MediathekDownload4Chrome",
+  "description": "Videos aus der ARD- und ZDF-Mediathek herunterladen leicht gemacht. Schaue deine favorisierten der Öffentlich-Rechtlichen wann und wo du willst!",
+  "version": "1.0",
+  "permissions": [
+    "http://*/*",
+    "webRequest",
+    "webRequestBlocking",
+    "downloads",
+    "tabs"
+  ],
+  "page_action": {
+    "default_icon": {
+      "19": "./images/addressbar_icon_19.png",
+      "38": "./images/addressbar_icon_38.png"
+    },
+    "default_title": "MediathekDownload4Chrome",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": [
+      "js/mediathekHandler/ARDHandler.js",
+      "js/mediathekHandler/ZDFHandler.js",
+      "js/mediathekCore.js",
+      "js/background.js"
+    ]
+  },
+  "icons": {
+    "16": "./images/addon_icon_16.png",
+    "48": "./images/addon_icon_48.png",
+    "128": "./images/addon_icon_128.png"
+  }
+}
