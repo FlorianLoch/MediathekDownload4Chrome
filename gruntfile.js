@@ -60,12 +60,19 @@ module.exports = function(grunt) {
       dist: {
         src: "dist"
       }
+    },
+    crx: {
+      outputPackage: {
+        "src": "dist/",
+        "dest": "./",
+      }
     }
   });
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-crx');
 
   // Default task(s).
   grunt.registerMultiTask("removeDir", "Removes a directory", function () {
@@ -73,5 +80,5 @@ module.exports = function(grunt) {
     rimraf.sync(this.data.src);
   });
 
-  grunt.registerTask('build', ['removeDir', 'uglify', 'copy']);
+  grunt.registerTask('build', ['removeDir', 'uglify', 'copy', 'grunt-crx']);
 };  
