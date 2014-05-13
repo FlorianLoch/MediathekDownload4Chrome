@@ -5,11 +5,16 @@ angular.module("md4c", ["ngAnimate"]).controller("md4c.mainCntrl", ["$scope", fu
 	$scope.loading = true;
 	$scope.videos = [];
 
-	bg.mC.getVideoFileURLs(function (videoUrls_ar) {
-		$scope.videos = videoUrls_ar;
-		$scope.loading = false;
+	chrome.tabs.getSelected(function (tab) {
+		console.log("Current tab");
+		console.log(tab);
 
-		$scope.$digest();
+		bg.getVideoFileURLs(tab.id, function (videoUrls_ar) {
+			$scope.videos = videoUrls_ar;
+			$scope.loading = false;
+
+			$scope.$digest();
+		});
 	});
 
 	$scope.videosFound = function () {

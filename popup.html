@@ -39,7 +39,13 @@
 		}
 
 		#noVidsScreen {
-			background: url("./images/sad_pinguin.png");
+			text-align: center;
+			font-weight: bold;
+		}
+
+		#noVidsScreen img {
+			height: 230px;
+			margin-bottom: 10px;
 		}
 
 		#listScreen {
@@ -68,7 +74,8 @@
 			<div class="plainfade" ng-if="loading" id="loadingScreen"></div>
 			<div class="plainfade" ng-if="!loading">
 				<div ng-if="!videosFound()" id="noVidsScreen">
-					
+					<img src="./images/sad_pinguin.svg">
+					<div>Es tut uns leid, aber es konnten leider keine Videos gefunden werden!</div>
 				</div>
 				<div ng-if="videosFound()" id="name">{{getName()}}</div>
 				<div ng-if="videosFound()" id="listScreen">

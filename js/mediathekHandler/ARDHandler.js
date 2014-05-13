@@ -80,11 +80,9 @@ function ARDHandler() {
                     return;
                 }
 
-                console.log("URLs");
-                console.log(sourceBlocks);
-
                 var name = findString(response, "<h1 class=\"clipTitel\">", 0, "<").str;
 
+                var highDetected = false; //ARD uses to have to streams labeled with "L" for high quality, but one has much bigger filesize and therefore is probably much better in quality. This one is placed after the other. So the second detected gets ranked "Sehr hohe Qualität"
                 for (var i = 0; i < sourceBlocks.length; i++) {
                 	var vid = {};
                 	vid.desc = "Unbekannte Qualität";
@@ -98,62 +96,25 @@ function ARDHandler() {
                 		vid.desc = "Mittlere Qualität";
                 	}
                 	else if (qualDetected == "L") {
-                		vid.desc = "Hohe Qualität";
+                		vid.desc = (highDetected) ? "Sehr hohe Qualität" : "Hohe Qualität";
+                        highDetected = true;
                 	}
 
                 	vid.fs = "";
                 	vid.name = name;
                 	vid.url = findString(sourceBlocks[i], "src=\"", 0, "\"").str;
 
-                	res.push(vid);
-                }
+                    //Video with low quality should appear at the beginning (ARD always places it after the others...)
+                	if (qualDetected == "S") {
+                        res.unshift(vid);
+                        continue;
+                    }
 
-                console.log("Found ARD videos:");
-                console.log(res);
+                    res.push(vid);
+                }
 
                 //Give the result back via the callback-function
                 self._parent.getFileSizes(res, fnCallback);
-                // var src = response;
-
-                // //Parse the page for the URLs
-
-                // var arURLs = src.match(/http:\/\/.*?\.mp4/g); //?: Non-greedy mode
-
-                // var res = new Array();
-
-                // if (arURLs == undefined) {
-                //     fnCallback(res); //With the empty array the frontendWorker knows, that no videos have been found
-                //     console.log("No URLs found!");
-                //     return;
-                // }
-
-                
-
-                // if (arURLs.length >= 3) {
-                //     //if (arURLs[3] == undefined) {
-                //     res[0] = {};
-                //     res[0].desc = "Niedrige Qualität";
-                //     res[0].fs = "";
-                //     res[0].url = arURLs[arURLs.length - 1];
-                //     res[0].name = name.str;
-                //     //}
-                //     //if (arURLs[0] == undefined) {
-                //     res[1] = {};
-                //     res[1].desc = "Mittlere Qualität";
-                //     res[1].fs = "";
-                //     res[1].url = arURLs[0];
-                //     res[1].name = name.str;
-                //     //}	  	  
-                //     //if (arURLs[2] == undefined) {
-                //     res[2] = {};
-                //     res[2].desc = "Hohe Qualität";
-                //     res[2].fs = "";
-                //     res[2].url = arURLs[arURLs.length - 2];
-                //     res[2].name = name.str;
-                //     //}		  	  	  
-                // }
-
-                // console.log("Finished Searching!");
             }
         }).get();
     };

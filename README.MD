@@ -1,0 +1,1 @@
+Origin of loading-gif: http://spiffygif.com/
