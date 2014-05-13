@@ -1,18 +1,13 @@
-var mCList = {};
+var mC = new MediathekCore();
 
 //Add all mediathek-handlers to the core
-
-
-chrome.tabs.onRemoved.addListener(function (tabId_i) {
-    delete mCList[tabId_i];
-});
+mC.addMediathekHandler(new ARDHandler());
+mC.addMediathekHandler(new ZDFHandler());
 
 chrome.tabs.onUpdated.addListener(function(tabId_i, changeInfo_o, tab_Tab) {
     if (!("url" in changeInfo_o)) return;
 
-    if (mCList[tabId_i] == undefined) initMC(tabId_i);
-
-    var info = mCList[tabId_i].getMediathekInfo(changeInfo_o.url);
+    var info = mC.getMediathekInfo(changeInfo_o.url);
     if (info != null) {
         chrome.pageAction.setTitle({
             tabId: tabId_i,
@@ -24,14 +19,6 @@ chrome.tabs.onUpdated.addListener(function(tabId_i, changeInfo_o, tab_Tab) {
         chrome.pageAction.hide(tabId_i);
     }
 });
-
-function initMC(tabId_i) {
-    mCList[tabId_i] = new MediathekCore();
-    mCList[tabId_i].addMediathekHandler(new ARDHandler());
-    mCList[tabId_i].addMediathekHandler(new ZDFHandler());
-}
-
-//Tab onclose to remove not more needed mc instances
 
 chrome.webRequest.onBeforeSendHeaders.addListener(
     function (req) {
@@ -71,11 +58,3 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
     	"blocking"
     ]
 );
-
-function getVideoFileURLs(tabId_i, cb_fn) {
-    mCList[tabId_i].getVideoFileURLs(cb_fn);
-}
-
-function downloadVideo(tabId_i, cb_fn) {
-    mCList[tabId_i].downloadVideo(cb_fn);
-}

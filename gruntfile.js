@@ -14,6 +14,7 @@ module.exports = function(grunt) {
           'bower_components/jquery/dist/jquery.min.js', 
           'bower_components/angular/angular.min.js',
           "bower_components/angular-animate/angular-animate.min.js",
+          "bower_components/bootstrap/js/dropdown.js",
           "js/popup.js"
         ]
       },
@@ -72,7 +73,6 @@ module.exports = function(grunt) {
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-crx');
 
   // Default task(s).
   grunt.registerMultiTask("removeDir", "Removes a directory", function () {
@@ -80,5 +80,5 @@ module.exports = function(grunt) {
     rimraf.sync(this.data.src);
   });
 
-  grunt.registerTask('build', ['removeDir', 'uglify', 'copy', 'grunt-crx']);
+  grunt.registerTask('build', ['removeDir', 'uglify', 'copy']);
 };  

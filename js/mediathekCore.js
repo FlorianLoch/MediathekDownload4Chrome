@@ -1,7 +1,5 @@
 function MediathekCore () {
 	var arHandler = new Array();
-	var sCurrentURL;
-	var oCurrentHandler;
 	
 	this.addMediathekHandler = function (oHandler) {
 		//Add reference to itself
@@ -34,9 +32,6 @@ function MediathekCore () {
 		res.logo = oHandler.getLogoURL();
 		res.icon = "mediathekIcons/" + oHandler.getNameOfChannel() + ".png";
 		
-		oCurrentHandler = oHandler;
-		sCurrentURL = sURL;
-		
 		return res;
 	};
 	
@@ -52,6 +47,15 @@ function MediathekCore () {
 			});
 		}
 	};
+
+	this.openVideoInTab = function (videoUrl_o) {
+		if ("url" in videoUrl_o) {
+			chrome.tabs.create({
+				url: videoUrl_o.url,
+				active: true
+			});
+		}
+	}
 
 	// Characters interpreted as invalid: /, \, ?, %, *, :, |, ", <, > (regarding to the article at: http://en.wikipedia.org/wiki/Filename)
 	function makeFileNameValid (filename_s) {
@@ -94,8 +98,15 @@ function MediathekCore () {
 
 	//For the syntax of the returned object see the according comment in "doc/Example handler.js" because
 	//this method is actually just a delegating/forwarding method
-	this.getVideoFileURLs = function (fnCallback) {
-		oCurrentHandler.getVideoFileURLs(sCurrentURL, fnCallback);
+	this.getVideoFileURLs = function (url_s, fnCallback) {
+		var oCurrentHandler = getHandlerForURL(url_s);
+
+		if (oCurrentHandler == null) {
+			console.error("Could not find a handler for url '" + url_s + "'");
+			return;
+		}
+
+		oCurrentHandler.getVideoFileURLs(url_s, fnCallback);
 	};
 	
 	this.getFileSizes = function (oVideoURLs, fnCallback) {

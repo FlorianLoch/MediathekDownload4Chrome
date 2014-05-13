@@ -1,12 +1,12 @@
 var videoUrls;
-var bg = chrome.extension.getBackgroundPage();
+var bg = chrome.extension.getBackgroundPage().mC;
 
 angular.module("md4c", ["ngAnimate"]).controller("md4c.mainCntrl", ["$scope", function ($scope) {
 	$scope.loading = true;
 	$scope.videos = [];
 
 	chrome.tabs.getSelected(function (tab) {
-		bg.getVideoFileURLs(tab.id, function (videoUrls_ar) {
+		bg.getVideoFileURLs(tab.url, function (videoUrls_ar) {
 			$scope.videos = videoUrls_ar;
 			$scope.loading = false;
 
@@ -19,9 +19,11 @@ angular.module("md4c", ["ngAnimate"]).controller("md4c.mainCntrl", ["$scope", fu
 	}
 
 	$scope.download = function (index_i) {
-		chrome.tabs.getSelected(function (tab) {
-			bg.downloadVideo(tab.id, $scope.videos[index_i]);
-		});
+		bg.downloadVideo($scope.videos[index_i]);
+	}
+
+	$scope.open = function (index_i) {
+		bg.openVideoInTab($scope.videos[index_i]);
 	}
 
 	$scope.getName = function () {

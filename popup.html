@@ -7,6 +7,7 @@
 			<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>		
 			<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 			<script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+			<script type="text/javascript" src="bower_components/bootstrap/js/dropdown.js"></script>
 			<script type="text/javascript" src="js/popup.js"></script>
 			<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 		<!-- END OF INCLUDES -->
@@ -53,8 +54,16 @@
 			padding-top: 20px;
 		}
 
-		button {
+		.md4c-button {
 			width: 100%;
+		}
+
+		.md4c-button-main {
+			width: 90%;
+		}
+
+		.md4c-button-toggle {
+			width: 10%;
 		}
 
 		.buttonDiv + .buttonDiv {
@@ -83,7 +92,16 @@
 						<div class="panel-heading">Download ausw&auml;hlen:</div>
 						<div class="panel-body">
 							<div ng-repeat="vid in videos" class="buttonDiv">
-								<button ng-click="download($index)" class="btn btn-primary" ng-if="vid.exists">{{vid.desc}} ({{vid.fs}})</button>
+								<div class="btn-group md4c-button" ng-if="vid.exists">
+									<button ng-click="download($index);" class="btn btn-primary md4c-button-main">{{vid.desc}} ({{vid.fs}})</button>
+									<button class="btn btn-primary dropdown-toggle md4c-button-toggle" data-toggle="dropdown">
+										<span class="caret"></span>
+										<span class="sr-only">Toggle Dropdown</span>
+									</button>
+									<ul class="dropdown-menu" role="menu">
+										<li><a ng-click="open($index);" href="#">Direkt In neuem Tab ansehen</a></li>
+									</ul>
+								</div>
 							</div>
 						</div>
 					</div>
