@@ -6,9 +6,6 @@ angular.module("md4c", ["ngAnimate"]).controller("md4c.mainCntrl", ["$scope", fu
 	$scope.videos = [];
 
 	chrome.tabs.getSelected(function (tab) {
-		console.log("Current tab");
-		console.log(tab);
-
 		bg.getVideoFileURLs(tab.id, function (videoUrls_ar) {
 			$scope.videos = videoUrls_ar;
 			$scope.loading = false;
@@ -22,7 +19,9 @@ angular.module("md4c", ["ngAnimate"]).controller("md4c.mainCntrl", ["$scope", fu
 	}
 
 	$scope.download = function (index_i) {
-		bg.mC.downloadVideo($scope.videos[index_i]);
+		chrome.tabs.getSelected(function (tab) {
+			bg.downloadVideo(tab.id, $scope.videos[index_i]);
+		});
 	}
 
 	$scope.getName = function () {

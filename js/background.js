@@ -75,3 +75,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
 function getVideoFileURLs(tabId_i, cb_fn) {
     mCList[tabId_i].getVideoFileURLs(cb_fn);
 }
+
+function downloadVideo(tabId_i, cb_fn) {
+    mCList[tabId_i].downloadVideo(cb_fn);
+}
