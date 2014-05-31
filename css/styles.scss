@@ -1,0 +1,119 @@
+body {
+	font-size: 100%;
+	font-family: "Open Sans", sans-serif;
+	background-image: url("../img/noise_transparent.png");
+	background-color: #D7D8D1;
+
+}
+
+#wrapper {
+	width: 100%;
+}
+
+.content-block {
+	width: 50%;
+	padding-left: 25%;
+	padding-right: 25%;	
+	padding-top: 30px;
+	padding-bottom: 30px;	
+
+	ul {
+		list-style-position: inside;
+		list-style-type: square;
+		font-size: 1.2em;
+	}
+
+	.feature-cell {
+		display: inline-block;
+		padding: 20px;
+
+		.feature-cell-head {
+			font-weight: bold;
+			text-align: left;
+		}
+
+		.feature-cell-body {
+			text-align: left;
+		}
+	}
+
+	.big {
+		font-size: 2em;
+		text-align: center;
+	}
+
+	.huge {
+		font-size: 3em;
+		text-align: center;
+		text-shadow: #333 3px 3px 5px; 
+	}
+}
+
+@mixin gradient-button($color1, $color2) {
+	background-image: linear-gradient($color1, $color2);
+	box-shadow: 0 1px 0 rgba(255,255,255,.5)inset,0 1px 3px rgba(0,0,0,.2);
+	border-radius: 2px;
+	font-size: 1em;
+	text-shadow: none;
+	font-weight: bold;
+	color: #222;
+	padding-right: 25px;
+	padding-left: 25px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+
+	&:focus, &:active, &:hover {
+		background-image: linear-gradient($color2, $color1);
+	}
+}
+
+.gradient-button-orange {
+	@include gradient-button(#FFCC00, #FFA200);
+	margin-right: 20px;
+}
+
+.gradient-button-grey {
+	@include gradient-button(#D0D0D0, #A2B2B2);
+}
+
+.float-left {
+	float: left;
+}
+
+.clear {
+	clear: both;
+}
+
+.center {
+	margin: 0 auto !important;
+	text-align: center;
+}
+
+#button_container {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	text-align: center;
+}
+
+.grey {
+	background-image: url("../img/noise_transparent.png");
+	background-color: #444;
+	color: white;
+}
+
+.yellow {
+	background-image: url("../img/noise_transparent.png");
+	background-color: #FFFFB9;
+	color: #222;
+}
+
+.blue {
+	background-image: url("../img/noise_transparent.png");
+	background-color: #9CB3FE;
+	color: white;
+}
+
+.address {
+	font-family: serif;
+	font-size: 1em;
+}
