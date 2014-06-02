@@ -1,3 +1,5 @@
+$grey: #444;
+
 body {
 	font-size: 100%;
 	font-family: "Open Sans", sans-serif;
@@ -22,6 +24,7 @@ body {
 	padding-right: 25%;	
 	padding-top: 30px;
 	padding-bottom: 30px;	
+	line-height: 1.5em;
 
 	ul {
 		list-style-position: inside;
@@ -45,6 +48,30 @@ body {
 		.feature-cell-body {
 			text-align: left;
 		}
+	}
+
+	.step-item {
+		margin-left: 10%;
+		margin-right: 10%;
+		width: 80%;
+		color: $grey;
+
+		.step-item-number {
+			float: left;
+			font-size: 2em;
+			margin-right: 10px;
+			border: 2px solid $grey;
+			border-radius: 100px;
+			padding: 10px;
+		}
+
+		.step-item-content {
+		}
+	}
+
+	.step-item + .step-item {
+		margin-top: 20px;
+		color: black;
 	}
 
 	.big {
@@ -101,6 +128,7 @@ body {
 
 .clear {
 	clear: both;
+	float: none;
 }
 
 .center {
@@ -116,7 +144,7 @@ body {
 
 .grey {
 	background-image: url("../img/noise_transparent.png");
-	background-color: #444;
+	background-color: $grey;
 	color: white;
 }
 
@@ -130,6 +158,12 @@ body {
 	background-image: url("../img/noise_transparent.png");
 	background-color: #9CB3FE;
 	color: white;
+}
+
+.bordeux {
+	background-image: url("../img/noise_transparent.png");
+	background-color: #93002F;
+	color: white;	
 }
 
 .address {
