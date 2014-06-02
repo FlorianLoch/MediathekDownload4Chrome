@@ -7,6 +7,11 @@ body {
 #wrapper {
   width: 100%; }
 
+#logo {
+  background-image: url("../img/addon_icon_128.png");
+  width: 128px;
+  height: 128px; }
+
 .content-block {
   width: 50%;
   padding-left: 25%;
@@ -19,10 +24,12 @@ body {
     font-size: 1.2em; }
   .content-block .feature-cell {
     display: inline-block;
-    padding: 20px; }
+    padding: 10px; }
     .content-block .feature-cell .feature-cell-head {
       font-weight: bold;
       text-align: left; }
+      .content-block .feature-cell .feature-cell-head:before {
+        content: url("../img/star.png"); }
     .content-block .feature-cell .feature-cell-body {
       text-align: left; }
   .content-block .big {
@@ -31,7 +38,13 @@ body {
   .content-block .huge {
     font-size: 3em;
     text-align: center;
-    text-shadow: #333 3px 3px 5px; }
+    text-shadow: #333 3px 3px 5px;
+    margin-bottom: 20px; }
+
+.address {
+  font-style: italic; }
+  .address a {
+    color: #111; }
 
 .gradient-button-orange {
   background-image: linear-gradient(#FFCC00, #FFA200);
