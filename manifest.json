@@ -5,8 +5,6 @@
   "version": "1.0",
   "permissions": [
     "http://*/*",
-    "webRequest",
-    "webRequestBlocking",
     "downloads",
     "tabs",
     "storage"

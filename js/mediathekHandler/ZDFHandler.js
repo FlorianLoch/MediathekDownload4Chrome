@@ -16,14 +16,10 @@ function ZDFHandler() {
 	
 	//A URL is given to this method and it has to decide whether this object is the right handler for this url/mediathek
 	this.isHandlerForURL = function (sURL) {
-		if (sURL.search("http://www.zdf.de/ZDFmediathek/beitrag/video/.*flash=off") > -1) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		console.log("Check " + sURL);
+		return (sURL.search(/http:\/\/www\.zdf\.de\/ZDFmediathek.*\/beitrag\/video\/.*/) > -1);
 	};
-	
+	 
 	//Result needs to have this JSON-syntax:
 	/*
 		[
@@ -42,12 +38,19 @@ function ZDFHandler() {
 		]
 	*/
 	this.getVideoFileURLs = function (sURL, fnCallback) {
-		var sAndroidUA = "Android 2.2";
 		var self = this;
-		
+
+		//Check if URL is of Flash-version and transform it if needed
+		if (sURL.search(/http:\/\/www\.zdf\.de\/ZDFmediathek\/hauptnavigation\/startseite#\/beitrag\/video\/.*/) > -1) {
+			var videoIdentifier = /beitrag\/video(\/[0-9]+.*$)/.exec(sURL);
+			sURL = "http://www.zdf.de/ZDFmediathek/beitrag/video" + videoIdentifier[1] + "?flash=off";
+			console.log(sURL);
+		}
+
+		sURL = sURL + "&ipad=true";
+
 		new Request({
 		  url: sURL,
-		  headers: {"Change-User-Agent": sAndroidUA},
 		  onComplete: function (response, header, status) {
 		  	  var src = response;
 		  	  
