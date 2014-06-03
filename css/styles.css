@@ -13,6 +13,7 @@ body {
   height: 128px; }
 
 .content-block {
+  display: none;
   width: 50%;
   padding-left: 25%;
   padding-right: 25%;
@@ -114,8 +115,6 @@ body {
   text-align: center; }
 
 #button_container {
-  margin-top: 50px;
-  margin-bottom: 50px;
   text-align: center; }
 
 .grey {

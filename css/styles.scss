@@ -20,11 +20,13 @@ body {
 }
 
 .content-block {
+    display: none; //Pre-Hide so they can be displayed by jQuery
+
     width: 50%;
     padding-left: 25%;
-    padding-right: 25%; 
+    padding-right: 25%;
     padding-top: 30px;
-    padding-bottom: 30px;   
+    padding-bottom: 30px;
     line-height: 1.5em;
 
     ul {
@@ -147,8 +149,6 @@ body {
 }
 
 #button_container {
-    margin-top: 50px;
-    margin-bottom: 50px;
     text-align: center;
 }
 
