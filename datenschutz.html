@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>Datenschutz - MD4C</title>
+</head>
+<body>
+    Diese Website benutzt Google Analytics, einen Webanalysedienst der Google Inc. (&quot;Google&quot;). Google Analytics verwendet sog. &quot;Cookies&quot;, Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website durch Sie erm&ouml;glichen. Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Im Auftrag des Betreibers dieser Website wird Google diese Informationen benutzen, um Ihre Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen gegenüber dem Websitebetreiber zu erbringen. Die im Rahmen von Google Analytics von Ihrem Browser &uuml;bermittelte IP-Adresse wird nicht mit anderen Daten von Google zusammengef&uuml;hrt - eine Identifizierung Ihrer Person ist daher nicht m&ouml;glich. Sie k&ouml;nnen die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht s&auml;mtliche Funktionen dieser Website vollumf&auml;nglich werden nutzen k&ouml;nnen. Sie k&ouml;nnen dar&uuml;ber hinaus die Erfassung der durch das Cookie erzeugten und auf Ihre Nutzung der Website bezogenen Daten (inkl. Ihrer IP-Adresse) an Google sowie die Verarbeitung dieser Daten durch Google verhindern, indem sie das unter dem folgenden Link verf&uuml;gbare Browser-Plugin herunterladen und installieren: <a href="http://tools.google.com/dlpage/gaoptout?hl=de">http://tools.google.com/dlpage/gaoptout?hl=de</a>. Alternativ zum Browser-Add-On oder innerhalb von Browsern auf mobilen Ger&auml;ten, <a id="GAOptOut" title="Google Analytics Opt-Out-Cookie setzen" href="javascript:gaOptout()">klicken Sie bitte diesen Link</a>, um die Erfassung durch Google Analytics innerhalb dieser Website zukünftig zu verhindern (das Opt Out funktioniert nur in dem Browser und nur für diese Domain). Dabei wird ein Opt-Out-Cookie auf Ihrem Ger&auml;t abgelegt. L&ouml;schen Sie Ihre Cookies in diesem Browser, m&uuml;ssen Sie diesen Link erneut klicken.
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+    // Set to the same value as the web property used on the site
+    var gaProperty = 'UA-51608551-1';
+
+    // Disable tracking if the opt-out cookie exists.
+    var disableStr = 'ga-disable-' + gaProperty;
+    if (document.cookie.indexOf(disableStr + '=true') > -1) {
+        window[disableStr] = true;
+    }
+
+    // Opt-out function
+
+    function gaOptout() {
+        document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+        window[disableStr] = true;
+    }
+    </script>
+    <script>
+    (function(b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] || (b[l] =
+            function() {
+                (b[l].q = b[l].q || []).push(arguments)
+            });
+        b[l].l = +new Date;
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = '//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-51608551-1');
+    ga('send', 'pageview');
+    </script>
+</body>
+</html>
