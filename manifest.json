@@ -1,7 +1,8 @@
 {
   "manifest_version": 2,
   "name": "MediathekDownload4Chrome",
-  "description": "Videos aus der ARD- und ZDF-Mediathek herunterladen leicht gemacht. Schaue deine favorisierten der Öffentlich-Rechtlichen wann und wo du willst!",
+  "short_name": "MD4C",
+  "description": "Videos aus der ARD- und ZDF-Mediathek herunterladen leicht gemacht: Einfach zu bedienen, Download als MP4, keine Werbung",
   "version": "0.8",
   "homepage_url": "http://florianloch.github.io/MediathekDownload4Chrome/index.html",
   "permissions": [
