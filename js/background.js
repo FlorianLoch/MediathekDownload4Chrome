@@ -38,11 +38,18 @@ function launch (callback_fn, callbackNewVersion_fn, callbackFirstRun_fn) {
 }
 
 function newVersionCallback(data) {
-    console.log("newVersionCallback");
+    openTab("http://florianloch.github.io/MediathekDownload4Chrome/index.html?page=update&version=" + RELEASE_NUM);  
 }
 
 function firstRunCallback(data) {
-    console.log("firstRunCallback");
+    openTab("http://florianloch.github.io/MediathekDownload4Chrome/index.html?page=thank_you");
+}
+
+function openTab(url) {
+    chrome.tabs.create({
+        url: url,
+        active: true
+    });  
 }
 
 function run () {

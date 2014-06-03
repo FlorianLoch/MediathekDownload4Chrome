@@ -2,7 +2,8 @@
   "manifest_version": 2,
   "name": "MediathekDownload4Chrome",
   "description": "Videos aus der ARD- und ZDF-Mediathek herunterladen leicht gemacht. Schaue deine favorisierten der Öffentlich-Rechtlichen wann und wo du willst!",
-  "version": "1.0",
+  "version": "0.8",
+  "homepage_url": "http://florianloch.github.io/MediathekDownload4Chrome/index.html",
   "permissions": [
     "http://*/*",
     "downloads",
