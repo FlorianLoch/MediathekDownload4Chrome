@@ -23,9 +23,13 @@ body {
     list-style-position: inside;
     list-style-type: square;
     font-size: 1.2em; }
+  .content-block #feature-container {
+    padding-left: 15px;
+    padding-right: 15px; }
   .content-block .feature-cell {
-    display: inline-block;
-    padding: 10px; }
+    padding: 10px;
+    width: calc(50% - 20px);
+    float: left; }
     .content-block .feature-cell .feature-cell-head {
       font-weight: bold;
       text-align: left; }
@@ -43,11 +47,13 @@ body {
       font-size: 2em;
       margin-right: 10px;
       border: 2px solid #444;
-      border-radius: 100px;
-      padding: 10px; }
+      border-radius: 100%;
+      padding: 10px;
+      background-color: #b5c7fe; }
+    .content-block .step-item .step-item-content {
+      color: black; }
   .content-block .step-item + .step-item {
-    margin-top: 20px;
-    color: black; }
+    margin-top: 20px; }
   .content-block .big {
     font-size: 2em;
     text-align: center; }
@@ -55,7 +61,8 @@ body {
     font-size: 3em;
     text-align: center;
     text-shadow: #333 3px 3px 5px;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    height: 40px; }
 
 .address {
   font-style: italic; }
@@ -74,6 +81,7 @@ body {
   padding-left: 25px;
   padding-top: 15px;
   padding-bottom: 15px;
+  text-decoration: none;
   margin-right: 20px; }
   .gradient-button-orange:focus, .gradient-button-orange:active, .gradient-button-orange:hover {
     background-image: linear-gradient(#FFA200, #FFCC00); }
@@ -89,7 +97,8 @@ body {
   padding-right: 25px;
   padding-left: 25px;
   padding-top: 15px;
-  padding-bottom: 15px; }
+  padding-bottom: 15px;
+  text-decoration: none; }
   .gradient-button-grey:focus, .gradient-button-grey:active, .gradient-button-grey:hover {
     background-image: linear-gradient(#A2B2B2, #D0D0D0); }
 
@@ -127,7 +136,8 @@ body {
 .bordeux {
   background-image: url("../img/noise_transparent.png");
   background-color: #93002F;
-  color: white; }
+  color: white;
+  text-align: justify !important; }
 
 .address {
   font-family: serif;

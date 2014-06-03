@@ -1,172 +1,183 @@
 $grey: #444;
+$blue: #9CB3FE;
 
 body {
-	font-size: 100%;
-	font-family: "Open Sans", sans-serif;
-	background-image: url("../img/noise_transparent.png");
-	background-color: #D7D8D1;
+    font-size: 100%;
+    font-family: "Open Sans", sans-serif;
+    background-image: url("../img/noise_transparent.png");
+    background-color: #D7D8D1;
 
 }
 
 #wrapper {
-	width: 100%;
+    width: 100%;
 }
 
 #logo {
-	background-image: url("../img/addon_icon_128.png");
-	width: 128px;
-	height: 128px;
+    background-image: url("../img/addon_icon_128.png");
+    width: 128px;
+    height: 128px;
 }
 
 .content-block {
-	width: 50%;
-	padding-left: 25%;
-	padding-right: 25%;	
-	padding-top: 30px;
-	padding-bottom: 30px;	
-	line-height: 1.5em;
+    width: 50%;
+    padding-left: 25%;
+    padding-right: 25%; 
+    padding-top: 30px;
+    padding-bottom: 30px;   
+    line-height: 1.5em;
 
-	ul {
-		list-style-position: inside;
-		list-style-type: square;
-		font-size: 1.2em;
-	}
+    ul {
+        list-style-position: inside;
+        list-style-type: square;
+        font-size: 1.2em;
+    }
 
-	.feature-cell {
-		display: inline-block;
-		padding: 10px;
+    #feature-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 
-		.feature-cell-head {
-			font-weight: bold;
-			text-align: left;
-		
-			&:before {
-				content: url("../img/star.png");
-			}
-		}
+    .feature-cell {
+        padding: 10px;
+        width: calc(50% - 20px);
+        float: left;
 
-		.feature-cell-body {
-			text-align: left;
-		}
-	}
+        .feature-cell-head {
+            font-weight: bold;
+            text-align: left;
+        
+            &:before {
+                content: url("../img/star.png");
+            }
+        }
 
-	.step-item {
-		margin-left: 10%;
-		margin-right: 10%;
-		width: 80%;
-		color: $grey;
+        .feature-cell-body {
+            text-align: left;
+        }
+    }
 
-		.step-item-number {
-			float: left;
-			font-size: 2em;
-			margin-right: 10px;
-			border: 2px solid $grey;
-			border-radius: 100px;
-			padding: 10px;
-		}
+    .step-item {
+        margin-left: 10%;
+        margin-right: 10%;
+        width: 80%;
+        color: $grey;
 
-		.step-item-content {
-		}
-	}
+        .step-item-number {
+            float: left;
+            font-size: 2em;
+            margin-right: 10px;
+            border: 2px solid $grey;
+            border-radius: 100%;
+            padding: 10px;
+            background-color: lighten($blue, 5%);
+        }
 
-	.step-item + .step-item {
-		margin-top: 20px;
-		color: black;
-	}
+        .step-item-content {
+            color: black;
+        }
+    }
 
-	.big {
-		font-size: 2em;
-		text-align: center;
-	}
+    .step-item + .step-item {
+        margin-top: 20px;
+    }
 
-	.huge {
-		font-size: 3em;
-		text-align: center;
-		text-shadow: #333 3px 3px 5px; 
-		margin-bottom: 20px;
-	}
+    .big {
+        font-size: 2em;
+        text-align: center;
+    }
+
+    .huge {
+        font-size: 3em;
+        text-align: center;
+        text-shadow: #333 3px 3px 5px; 
+        margin-bottom: 20px;
+        height: 40px; //Workaround because Chrome gives the text a too small box
+    }
 }
 
 .address {
-	font-style: italic;
+    font-style: italic;
 
-	a {
-		color: #111;
-	}
+    a {
+        color: #111;
+    }
 }
 
 @mixin gradient-button($color1, $color2) {
-	background-image: linear-gradient($color1, $color2);
-	box-shadow: 0 1px 0 rgba(255,255,255,.5)inset,0 1px 3px rgba(0,0,0,.2);
-	border-radius: 2px;
-	font-size: 1em;
-	text-shadow: none;
-	font-weight: bold;
-	color: #222;
-	padding-right: 25px;
-	padding-left: 25px;
-	padding-top: 15px;
-	padding-bottom: 15px;
+    background-image: linear-gradient($color1, $color2);
+    box-shadow: 0 1px 0 rgba(255,255,255,.5)inset,0 1px 3px rgba(0,0,0,.2);
+    border-radius: 2px;
+    font-size: 1em;
+    text-shadow: none;
+    font-weight: bold;
+    color: #222;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-decoration: none;
 
-	&:focus, &:active, &:hover {
-		background-image: linear-gradient($color2, $color1);
-	}
+    &:focus, &:active, &:hover {
+        background-image: linear-gradient($color2, $color1);
+    }
 }
 
 .gradient-button-orange {
-	@include gradient-button(#FFCC00, #FFA200);
-	margin-right: 20px;
+    @include gradient-button(#FFCC00, #FFA200);
+    margin-right: 20px;
 }
 
 .gradient-button-grey {
-	@include gradient-button(#D0D0D0, #A2B2B2);
+    @include gradient-button(#D0D0D0, #A2B2B2);
 }
 
 .float-left {
-	float: left;
+    float: left;
 }
 
 .clear {
-	clear: both;
-	float: none;
+    clear: both;
+    float: none;
 }
 
 .center {
-	margin: 0 auto !important;
-	text-align: center;
+    margin: 0 auto !important;
+    text-align: center;
 }
 
 #button_container {
-	margin-top: 50px;
-	margin-bottom: 50px;
-	text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
 }
 
 .grey {
-	background-image: url("../img/noise_transparent.png");
-	background-color: $grey;
-	color: white;
+    background-image: url("../img/noise_transparent.png");
+    background-color: $grey;
+    color: white;
 }
 
 .yellow {
-	background-image: url("../img/noise_transparent.png");
-	background-color: #FFFFB9;
-	color: #222;
+    background-image: url("../img/noise_transparent.png");
+    background-color: #FFFFB9;
+    color: #222;
 }
 
 .blue {
-	background-image: url("../img/noise_transparent.png");
-	background-color: #9CB3FE;
-	color: white;
+    background-image: url("../img/noise_transparent.png");
+    background-color: $blue;
+    color: white;
 }
 
 .bordeux {
-	background-image: url("../img/noise_transparent.png");
-	background-color: #93002F;
-	color: white;	
+    background-image: url("../img/noise_transparent.png");
+    background-color: #93002F;
+    color: white;
+    text-align: justify !important;
 }
 
 .address {
-	font-family: serif;
-	font-size: 1em;
+    font-family: serif;
+    font-size: 1em;
 }
