@@ -3,7 +3,7 @@
   "name": "MediathekDownload4Chrome",
   "short_name": "MD4C",
   "description": "Videos aus der ARD- und ZDF-Mediathek herunterladen leicht gemacht: Einfach zu bedienen, Download als MP4, keine Werbung",
-  "version": "0.8",
+  "version": "0.8.1",
   "homepage_url": "http://florianloch.github.io/MediathekDownload4Chrome/index.html",
   "permissions": [
     "http://*/*",

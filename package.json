@@ -1,6 +1,6 @@
 {
   "name": "MediathekDownload4Chrome",
-  "version": "0.0.0",
+  "version": "0.8.1",
   "description": "Chrome Extension for easy downloading of videos from ARD and ZDF",
   "main": "manifest.json",
   "directories": {
