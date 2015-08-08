@@ -44,14 +44,22 @@
             <div id="thankyou" class="content-block yellow">
                 <div class="big">
                     Vielen Dank, dass Sie MD4C heruntergeladen haben!
+                    <br><br>
                 </div>
-            </div>          
-            <div id="updates" class="content-block yellow">
+              Wenn Sie zufrieden mit dieser Erweiterung sind, erw&auml;gen Sie bitte eine positive Bewertung im <a href="https://chrome.google.com/webstore/detail/mediathekdownload4chrome/kcdfhiibejeaiflelbgfjifcngpdinbo">Chrome Webstore</a>.
+            </div>
+            <div id="updates" class="content-block blue">
                 <div class="big">
-                    Bisher kein Update-Verlauf!<br>
                     <span id="version_number"></span>
+                    <br>
+                    <br>
+                    &Auml;nderungen in dieser Version:
                 </div>
-            </div>  
+                <div>
+                  Hinweis auf Problematik mit der Flash-Version der ZDF-Mediathek. Bitte verwenden Sie stattdessen die HTML-Variante.<br>
+                  Sie finden diese unter <a href="http://www.zdf.de/ZDFmediathek/hauptnavigation/startseite?flash=off">http://www.zdf.de/ZDFmediathek/hauptnavigation/startseite?flash=off</a>!
+                </div>
+            </div>
             <div id="features" class="content-block yellow">
                 <div id="feature-container">
                     <div class="feature-cell">
@@ -85,7 +93,7 @@
                         <div class="feature-cell-body">
                             Dies ist ein &quot;Open Source&quot;-Projekt - jeder der m&ouml;chte kann sich den Code ansehen und Verbesserungen beisteuern. So k&ouml;nnen in Zukunft wom&ouml;glich auch weitere Mediatheken unterst&uuml;tzt werden.
                         </div>
-                    </div>                                                  
+                    </div>
                     <div class="clear"></div>
                 </div>
             </div>
@@ -116,12 +124,12 @@
                         Im sich nun &ouml;ffnenden Popup die Qualit&auml;tsstufe ausw&auml;hlen und Herunterladen (durch Klick auf den Button) oder direkt in neuem Tab &ouml;ffnen (Klick auf den Pfeil am rechten Rand des Buttons)
                     </div>
                     <div class="clear"></div>
-                </div>                            
+                </div>
             </div>
             <div id="donation" class="content-block bordeux center">
                 Die Entwicklung dieses Add-Ons geschieht in meiner Freizeit; Aktualisierungen, die durch &Auml;nderungen seitens der ARD und des ZDFs notwendig werden, ebenfalls.<br>
                 Wenn Sie meine Arbeit honorieren und mich motivieren m&ouml;chten, so k&ouml;nnen Sie dies in Form einer Spende tun. Jedoch sollte diese Spende nicht mir gelten, sondern Menschen, denen es schlechter geht als uns. Beispielsweise Menschen die Tag f&uuml;r Tag Hunger leiden m&uuml;ssen oder noch keinen Zugang zu Bildung haben.<br>
-                Sollte meine Arbeit Ausl&ouml;ser f&ouml;r eine Spende Ihrerseits an Organisationen wie bspw. &quot;Aktion Deutschland Hilft&quot;, &quot;UNICEF&quot;, &quot;PLAN&quot; sein, so k&ouml;nnen Sie mir gerne einen Beleg zur Motivation (Screenshot etc.) zukommen lassen! 
+                Sollte meine Arbeit Ausl&ouml;ser f&ouml;r eine Spende Ihrerseits an Organisationen wie bspw. &quot;Aktion Deutschland Hilft&quot;, &quot;UNICEF&quot;, &quot;PLAN&quot; sein, so k&ouml;nnen Sie mir gerne einen Beleg zur Motivation (Screenshot etc.) zukommen lassen!
             </div>
             <div id="imprint" class="content-block center address">
                 Entwickelt und gewartet von Florian Loch (<a href="https://github.com/FlorianLoch">@GitHub</a>, <a href="http://www.soffox.de">@Soffox.de</a>) | <a href="http://soffox.de/cms/pages/impressum.php">Impressum</a><br>
@@ -138,13 +146,13 @@
         <script>
         // Set to the same value as the web property used on the site
             var gaProperty = 'UA-51608551-1';
-             
+
             // Disable tracking if the opt-out cookie exists.
             var disableStr = 'ga-disable-' + gaProperty;
             if (document.cookie.indexOf(disableStr + '=true') > -1) {
               window[disableStr] = true;
             }
-             
+
             // Opt-out function
             function gaOptout() {
               document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';

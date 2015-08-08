@@ -6,7 +6,6 @@ body {
     font-family: "Open Sans", sans-serif;
     background-image: url("../img/noise_transparent.png");
     background-color: #D7D8D1;
-
 }
 
 #wrapper {
@@ -27,7 +26,6 @@ body {
     padding-right: 25%;
     padding-top: 30px;
     padding-bottom: 30px;
-    line-height: 1.5em;
 
     ul {
         list-style-position: inside;
@@ -48,7 +46,7 @@ body {
         .feature-cell-head {
             font-weight: bold;
             text-align: left;
-        
+
             &:before {
                 content: url("../img/star.png");
             }
@@ -92,7 +90,7 @@ body {
     .huge {
         font-size: 3em;
         text-align: center;
-        text-shadow: #333 3px 3px 5px; 
+        text-shadow: #333 3px 3px 5px;
         margin-bottom: 20px;
         height: 40px; //Workaround because Chrome gives the text a too small box
     }

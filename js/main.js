@@ -15,9 +15,9 @@ $(function init() {
         }
         // UPDATE HISTORY
         else if (params.page === "update") {
-            divsToShow = ["header", "updates", "donation", "imprint"];
+            divsToShow = ["header", "updates", "thankyou", "donation", "imprint"];
             if ("version" in params) {
-                $("#version_number").text("Ihre Version: " + params.version);
+                $("#version_number").text("Ihre Version: " + params.version); //To prevent XSS
             }
         }
     }
