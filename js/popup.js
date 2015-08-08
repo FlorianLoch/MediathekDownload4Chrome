@@ -15,7 +15,7 @@ angular.module("md4c", ["ngAnimate"]).controller("md4c.mainCntrl", ["$scope", fu
 	});
 
 	$scope.videosFound = function () {
-		return ($scope.videos.length > 0);
+		return (angular.isArray($scope.videos) && $scope.videos.length > 0);
 	}
 
 	$scope.download = function (index_i) {
@@ -50,7 +50,7 @@ angular.module("md4c", ["ngAnimate"]).controller("md4c.mainCntrl", ["$scope", fu
 		        }
 		    }
 		    return unescape(str);
-		}	
+		}
 	}
 }]);
 
